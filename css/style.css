@@ -687,19 +687,15 @@ span.bigcheck-target {
     }
     .modal-footer .total-price {
         flex-basis: 100%;
+        margin-bottom: 15px;
     }
     .ready {
-        margin-top: 15px;
         margin-right: 10px;
         margin-left: 0;
         font-size: 14px;
     }
-    .cancel {
-        margin-top: 15px;
-    }
-    .total-price {
-        margin-top: 15px;
-    }
+    
+    
 }
 @media ( max-width: 480px) {
     .footer-block {
@@ -727,6 +723,9 @@ span.bigcheck-target {
     }
     .button {
         min-height: 46px;
+    }
+    .ready {
+        font-size: 12px;
     }
     
 
