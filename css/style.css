@@ -692,8 +692,12 @@ span.bigcheck-target {
         margin-top: 15px;
         margin-right: 10px;
         margin-left: 0;
+        font-size: 14px;
     }
     .cancel {
+        margin-top: 15px;
+    }
+    .total-price {
         margin-top: 15px;
     }
 }
