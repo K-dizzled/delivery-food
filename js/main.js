@@ -91,7 +91,7 @@ if(localStorage.test != null)
 else{
     if((window.location.pathname != "/index.html") && (head == null))
     {
-        window.location="index.html";
+        //window.location="index.html";
     }
 }
 function loadDishes(restName) {
