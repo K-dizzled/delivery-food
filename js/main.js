@@ -81,6 +81,7 @@ function checkRest(RestName) {
     
 }
 
+const head = document.querySelector("#heading");
 console.log(localStorage.test);
 
 if(localStorage.test != null)
@@ -88,7 +89,7 @@ if(localStorage.test != null)
     loadDishes(localStorage.test)
 }
 else{
-    if(window.location.pathname != "/index.html")
+    if((window.location.pathname != "/index.html") && (head == null))
     {
         window.location="index.html";
     }
