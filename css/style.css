@@ -689,6 +689,7 @@ span.bigcheck-target {
         flex-basis: 100%;
     }
     .ready {
+        margin-top: 15px;
         margin-right: 10px;
         margin-left: 0;
     }
