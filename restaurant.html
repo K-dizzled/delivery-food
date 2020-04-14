@@ -87,60 +87,32 @@
                 <button class="close">&times;</button>
             </div>
 
-            <div class="modal-body">
-                <div class="food-row">
-                    <span class="food-name">Ролл угорь стандарт</span>
-                    <strong class="food-price">250 ₽</strong>
-                    <div class="food-counter">
-                        <button class="counter-button">-</button>
-                        <span class="counter">1</span>
-                        <button class="counter-button">+</button>
-                    </div>
-
-                </div>
-                <div class="food-row">
-                    <span class="food-name">Ролл угорь стандарт</span>
-                    <strong class="food-price">250 ₽</strong>
-                    <div class="food-counter">
-                        <button class="counter-button">-</button>
-                        <span class="counter">1</span>
-                        <button class="counter-button">+</button>
-                    </div>
-                </div>
-                <div class="food-row">
-                    <span class="food-name">Ролл угорь стандарт</span>
-                    <strong class="food-price">250 ₽</strong>
-                    <div class="food-counter">
-                        <button class="counter-button">-</button>
-                        <span class="counter">1</span>
-                        <button class="counter-button">+</button>
-                    </div>
-                </div>
-                <div class="food-row">
-                    <span class="food-name">Ролл угорь стандарт</span>
-                    <strong class="food-price">250 ₽</strong>
-                    <div class="food-counter">
-                        <button class="counter-button">-</button>
-                        <span class="counter">1</span>
-                        <button class="counter-button">+</button>
-                    </div>
-                </div>
-                <div class="food-row">
-                    <span class="food-name">Ролл угорь стандарт</span>
-                    <strong class="food-price">250 ₽</strong>
-                    <div class="food-counter">
-                        <button class="counter-button">-</button>
-                        <span class="counter">1</span>
-                        <button class="counter-button">+</button>
-                    </div>
-                </div>
+            <div class="cart-list" id="cart-list"> 
+                
             </div>
 
             <div class="modal-footer">
 
-                <span class="total-price">1250 ₽</span>
-                <button class="ready">Оформить заказ</button>
-                <button class="cancel">Отмена</button>
+                <span class="total-price" id = "total-price">1250 ₽</span>
+                <button class="ready" id="place-order">Оформить заказ</button>
+                <button class="cancel" id= "cancel">Отмена</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalOffer">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Оформить заказ</h3>
+                <button class="close" id="close1">&times;</button>
+            </div>
+
+            <div class="modalOffer-body">
+                <input type="text" class="input input-phone" id="input-phone" placeholder="Введите номер телефона:">
+            </div>
+            <div class="modal-footer">
+                <span class="total-price" id = "last-price">1250 ₽</span>
+                <button class="ready ready-last" id="callMeMaybe">Готово</button>
             </div>
         </div>
     </div>
@@ -148,6 +120,5 @@
     <script src="js/wow.min.js"></script>
     <script src="js/restaurant.js"></script>
     <script src="js/main.js"></script>
-
 </body>
 </html>

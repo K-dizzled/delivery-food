@@ -87,8 +87,13 @@ if(localStorage.test != null)
 {
     loadDishes(localStorage.test)
 }
+else{
+    if(window.location.pathname != "/index.html")
+    {
+        window.location="index.html";
+    }
+}
 function loadDishes(restName) {
-    console.log("entered");
 
     const restaurantRef = firestore.collection("restaurants").doc(restName);
 
@@ -113,7 +118,7 @@ function loadDishes(restName) {
         const gsReference = firebase.storage().ref(doc.data().image);
         gsReference.getDownloadURL().then(function(url) {
 
-         dishList.innerHTML += "<div class='card wow fadeInUp'><img src=" + url + " alt='image' class='card-image'><div class='card-text'><div class='card-heading'><h3 class='card-title card-title-reg'>" + doc.data().name + "</h3></div><div class='card-info'><div class='ingredients'>" + doc.data().ingredients + "</div></div><div class='card-buttons'><button class='button button-primary'><span class='button-card-text'>В корзину</span><img src='img/cart-white.svg' alt='Add to cart' class='button-card-image'></button><strong class='card-price-bold'>" + doc.data().price + "</strong></div></div></div>"
+         dishList.innerHTML += "<div class='card wow fadeInUp'><img src=" + url + " alt='image' class='card-image'><div class='card-text'><div class='card-heading'><h3 class='card-title card-title-reg'>" + doc.data().name + "</h3></div><div class='card-info'><div class='ingredients'>" + doc.data().ingredients + "</div></div><div class='card-buttons'><button class='button button-primary button-addToCart' id=" + doc.data().id + "><span class='button-card-text button-addToCart' id=" + doc.data().id + ">В корзину</span><img src='img/cart-white.svg' alt='Add to cart' class='button-card-image button-addToCart' id=" + doc.data().id + "></button><strong class='card-price-bold'>" + doc.data().price + "</strong></div></div></div>"
          
          }).catch(function(error) {
             // Handle any errors
@@ -122,4 +127,67 @@ function loadDishes(restName) {
         });
     });
 }
+
+
+const placeOrder = document.querySelector("#place-order");
+var lastPrice = document.querySelector("#last-price");
+const close2 = document.querySelector("#close1");
+var callMeMaybe = document.querySelector("#callMeMaybe");
+
+if(placeOrder != null){
+    placeOrder.addEventListener('click', function () {
+        cart.classList.remove("is-open");
+        cartList.innerHTML = "";
+        modalOffer.classList.add("is-open");
+        lastPrice.innerText = totalPrice + " ₽";
+    });
+    close2.addEventListener('click', function () {
+        modalOffer.classList.remove("is-open");
+    });
+    callMeMaybe.addEventListener('click', function () {
+        modalOffer.classList.remove("is-open");
+        alert("Оператор перезвонит вам в течение 5 минут!");
+        var inputVal = document.getElementById("input-phone").value;
+        firestore.collection("orders").doc(inputVal).set({
+            phone: inputVal,
+            total: totalPrice + " ₽"
+
+        }).then(function() {
+            console.log("Document successfully written!");
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+        });
+
+        for(let i = 1; i < parseInt(sessionStorage['amountDishes'] + 1); i++){
+
+            if(sessionStorage[i] != null){
+            var str = sessionStorage[i];
+            var newProduct = "";
+            var newPrice = "";
+            for(let j=0; j < str.indexOf('*'); j++){
+                if(str[j] != '-'){
+                    newProduct = newProduct + str.charAt(j);
+                }
+                else{
+                    newProduct = newProduct + ' ';
+                }
+            }
+            newPrice += str.slice(str.indexOf('*') + 1);
+    
+            firestore.collection("orders").doc(inputVal).collection("dishes").doc(newProduct).set({
+               product: newProduct,
+               price: newPrice
+
+        }).then(function() {
+            console.log("Document successfully written!");
+        })
+        .catch(function(error) {
+            console.error("Error writing document: ", error);
+        });
+        }
+        }
+    });
+}
+
 
