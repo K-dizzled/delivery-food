@@ -5,6 +5,39 @@ body {
     padding-top: 44px;
     font-family: 'Roboto', sans-serif;
 }
+input[type=checkbox] {
+    transform: scale(1.5);
+  }
+  
+  input[type=checkbox] {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    visibility: hidden;
+  }
+  
+  input[type=checkbox]:after {
+    content: " ";
+    background-color: #fff;
+    display: inline-block;
+    margin-left: 10px;
+    padding-bottom: 5px;
+    color: #00BFF0;
+    width: 22px;
+    height: 25px;
+    visibility: visible;
+    border: 1px solid #00BFF0;
+    padding-left: 3px;
+    border-radius: 5px;
+  }
+  
+  input[type=checkbox]:checked:after {
+    content: "\2714";
+    padding: -5px;
+    font-weight: bold;
+  }
 .main {
     background: linear-gradient(180deg, rgba(245, 245, 245, 0) 1.04%, #F5F5F5 100%);
 }
@@ -40,6 +73,11 @@ body {
 }
 .input-phone {
     width: 100%;
+    margin-bottom: 15px;
+}
+.input-comment {
+    width: 100%;
+    height: 60px;
     margin-bottom: 15px;
 }
 .buttons {
@@ -391,6 +429,14 @@ body {
     justify-content: space-between;
 }
 
+.postOrder-footer {
+    margin-top: 30px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .total-price {
     width: 106px;
     height: 53px;
@@ -423,6 +469,45 @@ body {
     margin-right: 0;
 
 }
+.modalChoice {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox {
+    flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+}
+span.bigcheck-target {
+    font-family: FontAwesome;
+    
+  }
+  
+  input[type='checkbox'].bigcheck {
+    position: relative;
+    left: -999em;
+  }
+  
+  input[type='checkbox'].bigcheck + span.bigcheck-target:after {
+    content: "\f096";
+  }
+  
+  input[type='checkbox'].bigcheck:checked + span.bigcheck-target:after {
+    content: "\f046";
+  }
+  
+  .bigcheck {
+    color: #0135a9;
+    font-family: sans-serif;
+    font-weight: 5;
+    font-size: 18px;
+    
+  }
+  
+  span.bigcheck {
+    display: block;
+  }
 .cancel {
     background: #FFFFFF;
     border: 1px solid #D9D9D9;
@@ -493,6 +578,13 @@ body {
     }
     .card-image {
         padding-right: 0px;
+    }
+}
+@media (max-width: 805px) {
+    .modalChoice {
+        flex-wrap: wrap;
+        display: flex;
+        flex-direction: column;
     }
 }
 @media (max-width: 768px) {
@@ -588,6 +680,22 @@ body {
     }
 
 }
+@media ( max-width: 555px) {
+.modal-footer {
+       
+        flex-wrap: wrap;
+    }
+    .modal-footer .total-price {
+        flex-basis: 100%;
+    }
+    .ready {
+        margin-right: 10px;
+        margin-left: 0;
+    }
+    .cancel {
+        margin-top: 15px;
+    }
+}
 @media ( max-width: 480px) {
     .footer-block {
         flex-wrap: wrap;
@@ -614,5 +722,22 @@ body {
     }
     .button {
         min-height: 46px;
+    }
+    
+
+}
+@media ( max-width: 480px) {
+    .food-name {
+        flex-basis: 100%;
+    }
+    .food-row {
+        flex-wrap: wrap;
+    }
+    .food-price {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .food-counter {
+        margin-top: 10px;
     }
 }

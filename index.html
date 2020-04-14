@@ -109,8 +109,41 @@
 
             <div class="modalOffer-body">
                 <input type="text" class="input input-phone" id="input-phone" placeholder="Введите номер телефона:">
+                <input type="text" class="input input-comment" id="input-comment" placeholder="Комментарий">
+                <div class="modalChoice">
+                
+                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+                  
+                  <span class="bigcheck">
+                    <label class="bigcheck">
+                      Картой онлайн
+                      <input type="checkbox" class="bigcheck" name="payment1" value="yes" id = "payment1"/>
+                      <span class="bigcheck-target"></span>
+                    </label>
+                  </span>
+                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+                  
+                  <span class="bigcheck">
+                    <label class="bigcheck">
+                      Картой курьеру
+                      <input type="checkbox" class="bigcheck" name="payment2" value="yes" id = "payment2"/>
+                      <span class="bigcheck-target"></span>
+                    </label>
+                  </span>
+                  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+                  
+                  <span class="bigcheck">
+                    <label class="bigcheck">
+                      Наличными курьеру
+                      <input type="checkbox" class="bigcheck" name="payment3" value="yes" id = "payment3"/>
+                      <span class="bigcheck-target"></span>
+                    </label>
+                  </span>
+
+
+               </div>
             </div>
-            <div class="modal-footer">
+            <div class="postOrder-footer">
                 <span class="total-price" id = "last-price">1250 ₽</span>
                 <button class="ready ready-last" id="callMeMaybe">Готово</button>
             </div>

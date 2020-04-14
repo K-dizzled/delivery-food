@@ -149,9 +149,16 @@ if(placeOrder != null){
         modalOffer.classList.remove("is-open");
         alert("Оператор перезвонит вам в течение 5 минут!");
         var inputVal = document.getElementById("input-phone").value;
+        var commentVal = document.getElementById("input-comment").value;
+        
         firestore.collection("orders").doc(inputVal).set({
             phone: inputVal,
-            total: totalPrice + " ₽"
+            total: totalPrice + " ₽",
+            comment: commentVal,
+            time: Math.round(new Date().getTime()/1000),
+            картойОнлайн: document.getElementById("payment1").checked,
+            картойКурьеру: document.getElementById("payment2").checked,
+            наличными: document.getElementById("payment3").checked
 
         }).then(function() {
             console.log("Document successfully written!");
