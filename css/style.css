@@ -102,6 +102,24 @@ input[type=checkbox] {
     color: #FFF;
     margin-right: 10px;
 }
+.button-login {
+    border: 1px solid #1890FF;
+}
+
+.animateaddtoCart {
+    box-shadow: 0px 0px 14px rgba(3, 3, 126, 0.33);
+}
+
+.cart-counter {
+    font-size:  13px;
+    margin: 0 auto;
+    text-align: center;
+
+}
+.is-visible {
+    visibility: visible;
+}
+
 .button-img { 
     margin-right: 6px;
     vertical-align: middle;

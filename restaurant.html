@@ -14,6 +14,25 @@
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase-storage.js"></script>
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+
+    <style>
+        #theOuterDiv {
+          position: relative;
+          top     : -34px;
+          left    : 114px;
+      }
+        #theInnerDiv {
+            position: absolute;
+            top     : 0px;
+            right   : 0px;
+            width: 24px;
+            height: 24px;
+            background-color: #ff1d1d;
+            border-radius: 50%;
+            display: inline-block;
+            color: #FFF;
+        }
+    </style>
 </head>
 <body>
     <script src="js/wow.min.js"></script>
@@ -23,11 +42,18 @@
         <img src="img/logo.svg" alt="Logo" class="logo" id="logo">
         <input type="text" class="input input-adress" placeholder="Адрес доставки">
         <div class="buttons">
-            <button class="button button-primary">
+            <button class="button button-primary button-login">
                 <img src="img/user.svg" alt="user" class="button-img"/>
                 <span class="button-text">Войти</span>
             </button>
             <button class="button button-cart" id="cart-button">
+
+                <div id="theOuterDiv">
+                    <div id="theInnerDiv">
+                        <span class="cart-counter" id="cart-counter">0</span>
+                    </div>
+                </div>
+                
                 <img src="img/cart.svg" alt="cart" class="button-img"/>
                 <span class="button-text">Корзина</span>
             </button>

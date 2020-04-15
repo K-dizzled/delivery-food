@@ -1,28 +1,54 @@
 
 document.addEventListener( "click", someListener );
+var cartCounter = document.querySelector("#cart-counter");
 
 function someListener(event){
     
     var element = event.target;
     
    if(element.className == "button button-primary button-addToCart" || element.className == "button-card-text button-addToCart" || element.className == "button-card-image button-addToCart"){
-    element.classList.add('bounce');
+    
     if(sessionStorage['amountDishes'] != null){
        sessionStorage.setItem('amountDishes', parseInt(sessionStorage['amountDishes'])+1);
        }
        else{
         sessionStorage.setItem('amountDishes', 1);
        }   
+
+       if(sessionStorage['counterCart'] != null){
+        sessionStorage.setItem('counterCart', parseInt(sessionStorage['counterCart'])+1);
+        cartCounter.innerText = sessionStorage['counterCart'];
+        }
+        else{
+         sessionStorage.setItem('counterCart', 1);
+         cartCounter.innerText = sessionStorage['counterCart'];
+        }  
+
     sessionStorage.setItem(sessionStorage['amountDishes'], element.id);
+    element.closest("button[title]").classList.add('animateaddtoCart');
+
+    console.log(element.closest("button[title]"));
+
+   setTimeout(removeAnim, 100, element.closest("button[title]"));
    }
 
    if(element.className == "counter-button delete") {
     delete sessionStorage[element.id];
     cartList.innerHTML = "";
     renewCart();
+    sessionStorage.setItem('counterCart', parseInt(sessionStorage['counterCart'])-1);
+    cartCounter.innerText = sessionStorage['counterCart'];
    }
-  
+   
 }
+
+function removeAnim(element){
+    element.classList.remove('animateaddtoCart');
+}
+
+if(sessionStorage['counterCart'] != null){
+    cartCounter.innerText = sessionStorage['counterCart'];
+    }
 
 var totalprice = document.querySelector("#total-price");
 var totalPrice = Number(0);

@@ -39,22 +39,35 @@ var config = {
   var imageSrc;
 
   const restaurantList = document.querySelector("#restaurnt-list");
+  var inputSearch = sessionStorage['inputSearch'];
 
-
+  reloadRestaurants();
+  function reloadRestaurants(){
+      if(restaurantList != null){
+    restaurantList.innerHTML = "";
+      }
+    inputSearch = sessionStorage['inputSearch'];
  firestore.collection("restaurants").get().then(function(querySnapshot) {
     querySnapshot.forEach(function(doc) {
 
         const gsReference = firebase.storage().ref(doc.data().image);
         gsReference.getDownloadURL().then(function(url) {
 
+            //console.log(doc.data().name.indexOf(inputSearch));
+            //console.log(inputSearch);
+
+         if((doc.data().name.indexOf(inputSearch) != -1) || (inputSearch == null))
+         {
+
          restaurantList.innerHTML += "<div class='card wow fadeInUp' id=" + doc.data().name + "> <img src=" + url + " alt='image' class='card-image' id=" + doc.data().name + "> <div class='card-text' id=" + doc.data().name + "><div class='card-heading' id=" + doc.data().name + "><h3 class='card-title' id=" + doc.data().name + ">" + doc.data().name + "</h3><span class='card-tag tag' id=" + doc.data().name + ">" + doc.data().time + "</span></div><div class='card-info' id=" + doc.data().name + "><div class='rating' id=" + doc.data().name + "><img src='img/rating.svg' alt='rating' id=" + doc.data().name + ">" + doc.data().rating + "</div><div class='price' id=" + doc.data().name + ">" + doc.data().price + "</div><div class='category' id=" + doc.data().name + ">" + doc.data().category + "</div></div></div></div>"
-         
+         }
          }).catch(function(error) {
             // Handle any errors
           });
          
     });
 });
+}
 
 const dishList = document.querySelector("#dish-list");
 
@@ -119,7 +132,7 @@ function loadDishes(restName) {
         const gsReference = firebase.storage().ref(doc.data().image);
         gsReference.getDownloadURL().then(function(url) {
 
-         dishList.innerHTML += "<div class='card wow fadeInUp'><img src=" + url + " alt='image' class='card-image'><div class='card-text'><div class='card-heading'><h3 class='card-title card-title-reg'>" + doc.data().name + "</h3></div><div class='card-info'><div class='ingredients'>" + doc.data().ingredients + "</div></div><div class='card-buttons'><button class='button button-primary button-addToCart' id=" + doc.data().id + "><span class='button-card-text button-addToCart' id=" + doc.data().id + ">В корзину</span><img src='img/cart-white.svg' alt='Add to cart' class='button-card-image button-addToCart' id=" + doc.data().id + "></button><strong class='card-price-bold'>" + doc.data().price + "</strong></div></div></div>"
+         dishList.innerHTML += "<div class='card wow fadeInUp'><img src=" + url + " alt='image' class='card-image'><div class='card-text'><div class='card-heading'><h3 class='card-title card-title-reg'>" + doc.data().name + "</h3></div><div class='card-info'><div class='ingredients'>" + doc.data().ingredients + "</div></div><div class='card-buttons'><button class='button button-primary button-addToCart' id=" + doc.data().id + " title='Добавить'><span class='button-card-text button-addToCart' id=" + doc.data().id + " >В корзину</span><img src='img/cart-white.svg' alt='Add to cart' class='button-card-image button-addToCart' id=" + doc.data().id + "></button><strong class='card-price-bold'>" + doc.data().price + "</strong></div></div></div>"
          
          }).catch(function(error) {
             // Handle any errors
@@ -150,7 +163,8 @@ if(placeOrder != null){
         alert("Оператор перезвонит вам в течение 5 минут!");
         var inputVal = document.getElementById("input-phone").value;
         var commentVal = document.getElementById("input-comment").value;
-        
+        var adressVal = document.getElementById("input-adress").value;
+
         firestore.collection("orders").doc(inputVal).set({
             phone: inputVal,
             total: totalPrice + " ₽",
@@ -158,7 +172,8 @@ if(placeOrder != null){
             time: Math.round(new Date().getTime()/1000),
             картойОнлайн: document.getElementById("payment1").checked,
             картойКурьеру: document.getElementById("payment2").checked,
-            наличными: document.getElementById("payment3").checked
+            наличными: document.getElementById("payment3").checked,
+            адрес: adressVal
 
         }).then(function() {
             console.log("Document successfully written!");
