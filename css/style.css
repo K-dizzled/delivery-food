@@ -714,6 +714,7 @@ span.bigcheck-target {
     }
     
     
+    
 }
 @media ( max-width: 480px) {
     .footer-block {
@@ -745,6 +746,10 @@ span.bigcheck-target {
     .ready {
         font-size: 12px;
     }
+    .counter-cart {
+        margin-right: 65px;
+    }
+    
     
 
 }
