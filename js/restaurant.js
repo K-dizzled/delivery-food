@@ -1,6 +1,7 @@
 
 document.addEventListener( "click", someListener );
 var cartCounter = document.querySelector("#cart-counter");
+var cartCounter1 = document.querySelector("#cart-counter1");
 
 function someListener(event){
     
@@ -18,10 +19,12 @@ function someListener(event){
        if(sessionStorage['counterCart'] != null){
         sessionStorage.setItem('counterCart', parseInt(sessionStorage['counterCart'])+1);
         cartCounter.innerText = sessionStorage['counterCart'];
+        cartCounter1.innerText = sessionStorage['counterCart'];
         }
         else{
          sessionStorage.setItem('counterCart', 1);
          cartCounter.innerText = sessionStorage['counterCart'];
+         cartCounter1.innerText = sessionStorage['counterCart'];
         }  
 
     sessionStorage.setItem(sessionStorage['amountDishes'], element.id);
@@ -38,6 +41,7 @@ function someListener(event){
     renewCart();
     sessionStorage.setItem('counterCart', parseInt(sessionStorage['counterCart'])-1);
     cartCounter.innerText = sessionStorage['counterCart'];
+    cartCounter1.innerText = sessionStorage['counterCart'];
    }
    
 }
@@ -48,6 +52,7 @@ function removeAnim(element){
 
 if(sessionStorage['counterCart'] != null){
     cartCounter.innerText = sessionStorage['counterCart'];
+    cartCounter1.innerText = sessionStorage['counterCart'];
     }
 
 var totalprice = document.querySelector("#total-price");

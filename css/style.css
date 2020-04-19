@@ -116,6 +116,10 @@ input[type=checkbox] {
     text-align: center;
 
 }
+
+.outer-counter1 {
+    display: none;
+}
 .is-visible {
     visibility: visible;
 }
@@ -746,11 +750,12 @@ span.bigcheck-target {
     .ready {
         font-size: 12px;
     }
-    .counter-cart {
-        margin-right: 65px;
+    .outer-counter {
+        display: none;
     }
-    
-    
+    .outer-counter1 {
+        display: flex;
+    }
 
 }
 @media ( max-width: 480px) {

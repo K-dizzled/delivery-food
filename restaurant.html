@@ -32,6 +32,23 @@
             display: inline-block;
             color: #FFF;
         }
+        #theOuterDiv1 {
+          position: relative;
+          top     : -34px;
+          left    : 50px;
+      }
+        #theInnerDiv1 {
+            position: absolute;
+            top     : 0px;
+            right   : 0px;
+            width: 24px;
+            height: 24px;
+            background-color: #ff1d1d;
+            border-radius: 50%;
+            display: inline-block;
+            color: #FFF;
+        }
+
     </style>
 </head>
 <body>
@@ -48,9 +65,14 @@
             </button>
             <button class="button button-cart" id="cart-button">
 
-                <div id="theOuterDiv">
+                <div id="theOuterDiv" class="outer-counter">
                     <div id="theInnerDiv" class="counter-cart">
                         <span class="cart-counter" id="cart-counter">0</span>
+                    </div>
+                </div>
+                <div id="theOuterDiv1" class="outer-counter1"> 
+                    <div id="theInnerDiv1" class="counter-cart1">
+                        <span class="cart-counter" id="cart-counter1">0</span>
                     </div>
                 </div>
                 
