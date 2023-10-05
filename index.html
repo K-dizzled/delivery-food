@@ -56,11 +56,11 @@
 
     <header class="header">
             <img src="img/logo.svg" alt="Logo" class="logo" id="logo">
-        <input type="text" class="input input-adress" placeholder="Адрес доставки">
+        <input type="text" class="input input-adress" placeholder="Delivery address">
         <div class="buttons">
             <button class="button button-primary button-login">
                 <img src="img/user.svg" alt="user" class="button-img"/>
-                <span class="button-text">Войти</span>
+                <span class="button-text">Login</span>
             </button>
             <button class="button button-cart" id="cart-button">
                 
@@ -77,7 +77,7 @@
                 
                 
                 <img src="img/cart.svg" alt="cart" class="button-img"/>
-                <span class="button-text">Корзина</span>
+                <span class="button-text">Your cart</span>
                 
             </button>
         </div>
@@ -89,16 +89,16 @@
     <div class="main">
         <div class="container">
          <section class="promo">
-            <h1 class="promo-title">Онлайн-сервис <br />доставки еды на дом</h1>
+            <h1 class="promo-title">Groceries<br />delivery </h1>
             <p class="promo-text">
-                Блюда из любимого ресторана привезет курьер в перчатках, маске и с антисептиком
+                Your Groceries, Your Way - Shop from Multiple Stores, Delivered to Your Doorstep!
             </p>
         </section>
    
         <section class="restaurants">
         <div class="section-heading">
-            <h2 class="section-title" id="heading">Рестораны</h2>
-            <input type="text" class="input input-search" placeholder="Поиск блюд и ресторанов" id="input-search" onchange="sessionStorage.setItem('inputSearch', this.value); reloadRestaurants()">
+            <h2 class="section-title" id="heading">Shops</h2>
+            <input type="text" class="input input-search" placeholder="Search shops and foods" id="input-search" onchange="sessionStorage.setItem('inputSearch', this.value); reloadRestaurants()">
         </div>
 
         <div class="restaurant-list" id="restaurnt-list"> 
@@ -116,16 +116,16 @@
             <div class="footer-block">
                 <img src="img/logo.svg" alt="logo" class="logo footer-logo">
                 <nav class="footer-nav">
-                    <a href="#" class="footer-link">Ресторанам</a>
-                    <a href="#" class="footer-link">Курьерам</a>
-                    <a href="#" class="footer-link">Пресс-центр</a>
-                    <a href="#" class="footer-link">Контакты</a>
+                    <a href="#" class="footer-link">For shop owners</a>
+                    <a href="#" class="footer-link">For couriers</a>
+                    <a href="#" class="footer-link">Press-center</a>
+                    <a href="#" class="footer-link">Contacts</a>
                 </nav>
-                <div class="social-links">
-                   <a href="https://www.instagram.com/_stem_cells_/" class="social-link"><img src="img/inst-icon.svg" alt="instgram link"></a>
-                   <a href="https://www.facebook.com/profile.php?id=100005156431292" class="social-link"><img src="img/facebook-icon.svg" alt="facebook link"></a>
-                   <a href="https://vk.com/stem_ceells" class="social-link"><img src="img/vk-icon.svg" alt="vk link"></a>
-                </div>
+                <!-- <div class="social-links">
+                   <a href="" class="social-link"><img src="img/inst-icon.svg" alt="instgram link"></a>
+                   <a href="" class="social-link"><img src="img/facebook-icon.svg" alt="facebook link"></a>
+                   <a href="" class="social-link"><img src="img/vk-icon.svg" alt="vk link"></a>
+                </div> -->
             </div>
         </div>
     </footer>
@@ -133,7 +133,7 @@
     <div class="modal">
         <div class="modal-dialog">
             <div class="modal-header">
-                <h3 class="modal-title">Корзина</h3>
+                <h3 class="modal-title">Your cart</h3>
                 <button class="close">&times;</button>
             </div>
 
@@ -143,9 +143,9 @@
 
             <div class="modal-footer">
 
-                <span class="total-price" id = "total-price">1250 ₽</span>
-                <button class="ready" id="place-order">Оформить заказ</button>
-                <button class="cancel" id= "cancel">Отмена</button>
+                <span class="total-price" id = "total-price">1250 €</span>
+                <button class="ready" id="place-order">Place order</button>
+                <button class="cancel" id= "cancel">Cancel</button>
             </div>
         </div>
     </div>
@@ -153,7 +153,7 @@
     <div class="modalOffer">
         <div class="modal-dialog">
             <div class="modal-header">
-                <h3 class="modal-title">Оформить заказ</h3>
+                <h3 class="modal-title">Place order</h3>
                 <button class="close" id="close1">&times;</button>
             </div>
 
@@ -166,7 +166,7 @@
                   
                   <span class="bigcheck">
                     <label class="bigcheck">
-                      Картой онлайн
+                      Card online
                       <input type="checkbox" class="bigcheck" name="payment1" value="yes" id = "payment1"/>
                       <span class="bigcheck-target"></span>
                     </label>
@@ -175,7 +175,7 @@
                   
                   <span class="bigcheck">
                     <label class="bigcheck">
-                      Картой курьеру
+                      Card to courier
                       <input type="checkbox" class="bigcheck" name="payment2" value="yes" id = "payment2"/>
                       <span class="bigcheck-target"></span>
                     </label>
@@ -184,7 +184,7 @@
                   
                   <span class="bigcheck">
                     <label class="bigcheck">
-                      Наличными курьеру
+                      Cash to courier
                       <input type="checkbox" class="bigcheck" name="payment3" value="yes" id = "payment3"/>
                       <span class="bigcheck-target"></span>
                     </label>
@@ -194,8 +194,8 @@
                </div>
             </div>
             <div class="postOrder-footer">
-                <span class="total-price" id = "last-price">1250 ₽</span>
-                <button class="ready ready-last" id="callMeMaybe">Готово</button>
+                <span class="total-price" id = "last-price">1250 €</span>
+                <button class="ready ready-last" id="callMeMaybe">Ready</button>
             </div>
         </div>
     </div>

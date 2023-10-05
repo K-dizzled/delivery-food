@@ -151,7 +151,7 @@ input[type=checkbox] {
 
 .promo {
     box-shadow: 0px 7px 12px rgba(158, 158, 163, 0.1);
-    background: #FFF1B8 url(../img/pizza-image.png) no-repeat bottom right / 550px ;
+    background: #FFF1B8 url(../img/groceries.png) no-repeat bottom right / 550px ;
     border-radius: 10px;
     padding: 68px 70px;
     margin-bottom: 56px;
@@ -628,7 +628,7 @@ span.bigcheck-target {
     .promo {
         padding: 20px 40px;
         background-size:300px;
-        background: #FFF1B8 url(../img/pizza-small-image.png) no-repeat bottom right -60px/ 300px ;
+        background: #FFF1B8 url(../img/groceries.png) no-repeat bottom right -60px/ 300px ;
     }
     .promo-title {
         max-width: 310px;

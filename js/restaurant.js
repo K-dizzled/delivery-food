@@ -82,7 +82,7 @@ function renewCart() {
     }
     }
     console.log(totalPrice);
-    totalprice.innerText = totalPrice + " ₽";
+    totalprice.innerText = totalPrice + " €";
 }
 
 const buttonCart = document.querySelector("#cart-button");

@@ -153,7 +153,7 @@ if(placeOrder != null){
         cart.classList.remove("is-open");
         cartList.innerHTML = "";
         modalOffer.classList.add("is-open");
-        lastPrice.innerText = totalPrice + " ₽";
+        lastPrice.innerText = totalPrice + " €";
     });
     close2.addEventListener('click', function () {
         modalOffer.classList.remove("is-open");
@@ -167,7 +167,7 @@ if(placeOrder != null){
 
         firestore.collection("orders").doc(inputVal).set({
             phone: inputVal,
-            total: totalPrice + " ₽",
+            total: totalPrice + " €",
             comment: commentVal,
             time: Math.round(new Date().getTime()/1000),
             картойОнлайн: document.getElementById("payment1").checked,
