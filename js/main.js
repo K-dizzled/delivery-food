@@ -130,13 +130,11 @@ function loadDishes(restName) {
     querySnapshot.forEach(function(doc) {
 
         const gsReference = firebase.storage().ref(doc.data().image);
-        gsReference.getDownloadURL().then(function(url) {
-
-         dishList.innerHTML += "<div class='card wow fadeInUp'><img src=" + url + " alt='image' class='card-image'><div class='card-text'><div class='card-heading'><h3 class='card-title card-title-reg'>" + doc.data().name + "</h3></div><div class='card-info'><div class='ingredients'>" + doc.data().ingredients + "</div></div><div class='card-buttons'><button class='button button-primary button-addToCart' id=" + doc.data().id + " title='Добавить'><span class='button-card-text button-addToCart' id=" + doc.data().id + " >В корзину</span><img src='img/cart-white.svg' alt='Add to cart' class='button-card-image button-addToCart' id=" + doc.data().id + "></button><strong class='card-price-bold'>" + doc.data().price + "</strong></div></div></div>"
-         
-         }).catch(function(error) {
-            // Handle any errors
-          });
+            gsReference.getDownloadURL().then(function(url) {  
+                dishList.innerHTML += "<div class='card wow fadeInUp'><img src=" + url + " alt='image' class='card-image'><div class='card-text'><div class='card-heading'><h3 class='card-title card-title-reg'>" + doc.data().name + "</h3></div><div class='card-info'><div class='ingredients'>" + doc.data().ingredients + "</div></div><div class='card-buttons'><button class='button button-primary button-addToCart' id=" + doc.data().id + " title='Добавить'><span class='button-card-text button-addToCart' id=" + doc.data().id + " >Add to cart</span><img src='img/cart-white.svg' alt='Add to cart' class='button-card-image button-addToCart' id=" + doc.data().id + "></button><strong class='card-price-bold'>" + doc.data().price + "</strong></div></div></div>"
+            }).catch(function(error) {
+                // Handle any errors
+            });
          
         });
     });
